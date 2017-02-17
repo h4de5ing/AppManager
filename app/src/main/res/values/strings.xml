@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AppManager</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nav_app">应用</string>
+    <string name="nav_rate">评价</string>
+    <string name="nav_open">开源许可</string>
+    <string name="nav_about">关于</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

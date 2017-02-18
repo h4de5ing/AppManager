@@ -3,47 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/circle_bg"
     android:divider="@drawable/divider"
     android:orientation="vertical"
     android:showDividers="middle">
 
     <TextView
         android:id="@+id/pop_tv_open"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
+        style="@style/App_nav"
         android:text="打开"/>
 
     <TextView
         android:id="@+id/pop_tv_uninstall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
+        style="@style/App_nav"
         android:text="卸载"/>
 
     <TextView
         android:id="@+id/pop_tv_collection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
+        style="@style/App_nav"
         android:text="收藏"/>
 
     <TextView
         android:id="@+id/pop_tv_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
+        style="@style/App_nav"
         android:text="信息"/>
 </LinearLayout>

@@ -17,11 +17,9 @@ import java.util.List;
 public class AppRecyAdapter extends RecyclerView.Adapter<AppRecyAdapter.ToolsViewHolder> {
     private LayoutInflater mLayoutInflater;
     private List<AppModel> mDatas;
-    private Context mContext;
     private OnClickListener mOnClickListener;
 
     public AppRecyAdapter(Context context, List<AppModel> list) {
-        mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
         mDatas = list;
     }
@@ -63,7 +61,7 @@ public class AppRecyAdapter extends RecyclerView.Adapter<AppRecyAdapter.ToolsVie
                 @Override
                 public void onClick(View v) {
                     if (mOnClickListener != null) {
-                        mOnClickListener.onItemClick(getAdapterPosition());
+                        mOnClickListener.onItemClick(getAdapterPosition(), v);
                     }
                 }
             });
@@ -75,6 +73,6 @@ public class AppRecyAdapter extends RecyclerView.Adapter<AppRecyAdapter.ToolsVie
     }
 
     public interface OnClickListener {
-        void onItemClick(int position);
+        void onItemClick(int position, View view);
     }
 }

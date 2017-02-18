@@ -7,11 +7,38 @@ import android.graphics.drawable.Drawable;
  */
 
 public class AppModel {
-    private Drawable icon;
+    private Drawable appIcon;
     private String appName;
     private String appSize;
     private String appDate;
     private String appApk;
+    private boolean isSystem;
+    private boolean isCollection;
+
+    public boolean isCollection() {
+        return isCollection;
+    }
+
+    public void setCollection(boolean collection) {
+        isCollection = collection;
+    }
+
+    public boolean isSystem() {
+        return isSystem;
+    }
+
+    public void setSystem(boolean system) {
+        isSystem = system;
+    }
+
+    public Drawable getAppIcon() {
+        return appIcon;
+    }
+
+    public void setAppIcon(Drawable appIcon) {
+        this.appIcon = appIcon;
+    }
+
 
     public String getAppPack() {
         return appPack;
@@ -22,14 +49,6 @@ public class AppModel {
     }
 
     private String appPack;
-
-    public Drawable getAppIcon() {
-        return icon;
-    }
-
-    public void setAppIcon(Drawable icon) {
-        this.icon = icon;
-    }
 
     public String getAppName() {
         return appName;

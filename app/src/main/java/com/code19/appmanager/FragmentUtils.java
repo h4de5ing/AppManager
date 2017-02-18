@@ -1,10 +1,10 @@
 package com.code19.appmanager;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 
 import com.code19.appmanager.fragment.CollectionAppFragment;
-import com.code19.appmanager.fragment.SystemAppFragment;
 import com.code19.appmanager.fragment.UserAppFragment;
 
 /**
@@ -34,9 +34,15 @@ public class FragmentUtils {
         switch (position) {
             case 0:
                 fragment = new UserAppFragment();
+                Bundle bundle0 = new Bundle();
+                bundle0.putBoolean("isSystem",false);
+                fragment.setArguments(bundle0);
                 break;
             case 1:
-                fragment = new SystemAppFragment();
+                fragment = new UserAppFragment();
+                Bundle bundle1 = new Bundle();
+                bundle1.putBoolean("isSystem",true);
+                fragment.setArguments(bundle1);
                 break;
             case 2:
                 fragment = new CollectionAppFragment();

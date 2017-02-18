@@ -1,16 +1,20 @@
 package com.code19.appmanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.code19.library.AppUtils;
 import com.code19.library.DateUtils;
 import com.code19.library.FileUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +22,7 @@ import java.util.List;
  * Created by gh0st on 2017/2/18.
  */
 
-public class AppUtil {
+public class AppUtil2 {
     public static List<AppModel> getInstallApp(Context context) {
         List<AppModel> appDatas = new ArrayList<AppModel>();
         PackageManager pm = context.getPackageManager();
@@ -35,7 +39,7 @@ public class AppUtil {
             appModel.setAppSize(appSize);
             appModel.setAppPack(info.packageName);
             appModel.setAppApk(getAppApk(context, info.packageName));
-            int flags = info.applicationInfo.flags;//得到当前应用的flags能力
+            int flags = info.applicationInfo.flags;
             if ((flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM) {
                 appModel.setSystem(true);
             } else {
@@ -44,6 +48,8 @@ public class AppUtil {
             if (!TextUtils.isEmpty(appName) && !TextUtils.isEmpty(appDate) && !TextUtils.isEmpty(appSize)) {
                 appDatas.add(appModel);
             }
+            File file = new File(FileUtils2.getApkFilePath(context) + info.packageName + ".apk");
+            appModel.setCollection(file.exists());
         }
         return appDatas;
     }
@@ -57,5 +63,31 @@ public class AppUtil {
             e.printStackTrace();
         }
         return sourceDir;
+    }
+
+    public static void openApp(Context context, String packname) {
+        Intent intent = context.getPackageManager().getLaunchIntentForPackage(packname);
+        if (intent == null) {
+            Toast.makeText(context, "无法启动应用", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        context.startActivity(intent);
+    }
+
+    public static void collection(Context context, AppModel bean) {
+        try {
+            FileUtils2.copy(bean.getAppApk(), FileUtils2.getApkFilePath(context) + bean.getAppPack() + ".apk", false);
+            bean.setCollection(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void viewAppInfo(Context context, String packname) {
+        Intent intent = new Intent();
+        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+        intent.addCategory("android.intent.category.DEFAULT");
+        intent.setData(Uri.parse("package:" + packname));
+        context.startActivity(intent);
     }
 }

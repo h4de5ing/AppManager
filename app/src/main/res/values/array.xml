@@ -5,4 +5,16 @@
         <item>系统</item>
         <item>收藏</item>
     </array>
+    <array name="app_nav">
+        <item>打开</item>
+        <item>卸载</item>
+        <item>收藏</item>
+        <item>信息</item>
+    </array>
+    <array name="app2_nav">
+        <item>打开</item>
+        <item>分享</item>
+        <item>删除</item>
+        <item>信息</item>
+    </array>
 </resources>

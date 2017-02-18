@@ -1,11 +1,14 @@
-package com.code19.appmanager;
+package com.code19.appmanager.model;
 
 import android.graphics.drawable.Drawable;
+
+import com.orm.dsl.Table;
 
 /**
  * Created by gh0st on 2017/2/17.
  */
 
+@Table
 public class AppModel {
     private Drawable appIcon;
     private String appName;

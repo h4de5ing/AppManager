@@ -1,4 +1,4 @@
-package com.code19.appmanager;
+package com.code19.appmanager.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,8 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.code19.appmanager.R;
+import com.code19.appmanager.adapter.AppRecyAdapter;
+import com.code19.appmanager.interfaces.OnDialogItemSelected;
+import com.code19.appmanager.model.AppModel;
+import com.code19.appmanager.sugar.Book;
+import com.code19.appmanager.utils.AppUtil2;
+import com.code19.appmanager.utils.FileUtils2;
+import com.code19.appmanager.utils.ViewUtils;
 import com.code19.library.AppUtils;
 import com.code19.library.FileUtils;
+import com.code19.library.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,23 +47,27 @@ public class UserAppFragment extends Fragment {
         } else {
             mApp_nav = getResources().getStringArray(R.array.app_nav);
         }
+        List<Book> books = Book.listAll(Book.class);
+        for (Book book : books) {
+            L.i(book.getId(), book.getTitle(), book.getEdition());
+        }
         mListData = new ArrayList<>();
         List<AppModel> installApp = AppUtil2.getInstallApp(getActivity());
         for (AppModel appModel : installApp) {
-            switch (mPosition) {
-                case 0:
-                    if (!appModel.isSystem())
-                        mListData.add(appModel);
-                    break;
-                case 1:
-                    if (appModel.isSystem())
-                        mListData.add(appModel);
-                    break;
-                case 2:
-                    if (appModel.isCollection())
-                        mListData.add(appModel);
-                    break;
-            }
+//            switch (mPosition) {
+//                case 0:
+//                    if (!appModel.isSystem())
+//                        mListData.add(appModel);
+//                    break;
+//                case 1:
+//                    if (appModel.isSystem())
+//                        mListData.add(appModel);
+//                    break;
+//                case 2:
+//                    if (appModel.isCollection())
+//                        mListData.add(appModel);
+//                    break;
+//            }
         }
     }
 

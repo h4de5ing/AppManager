@@ -15,3 +15,11 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+# 删除Log
+-assumenosideeffects class android.util.Log { *; }
+-assumenosideeffects class android.util.Log {
+    public static *** i(...);
+    public static *** v(...);
+    public static *** d(...);
+    public static *** e(...);
+}

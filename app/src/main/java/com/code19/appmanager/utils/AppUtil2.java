@@ -1,4 +1,4 @@
-package com.code19.appmanager;
+package com.code19.appmanager.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import com.code19.appmanager.model.AppModel;
 import com.code19.library.AppUtils;
 import com.code19.library.DateUtils;
 import com.code19.library.FileUtils;

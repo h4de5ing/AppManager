@@ -1,4 +1,4 @@
-package com.code19.appmanager;
+package com.code19.appmanager.utils;
 
 import android.content.Context;
 

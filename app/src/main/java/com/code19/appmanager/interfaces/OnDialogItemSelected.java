@@ -1,4 +1,4 @@
-package com.code19.appmanager;
+package com.code19.appmanager.interfaces;
 
 /**
  * Created by gh0st on 2017/2/18.

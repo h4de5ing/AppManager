@@ -1,8 +1,10 @@
-package com.code19.appmanager;
+package com.code19.appmanager.utils;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
+
+import com.code19.appmanager.fragment.UserAppFragment;
 
 /**
  * Created by gh0st on 2017/2/17.

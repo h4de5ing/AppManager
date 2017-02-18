@@ -1,4 +1,4 @@
-package com.code19.appmanager;
+package com.code19.appmanager.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.code19.appmanager.model.AppModel;
+import com.code19.appmanager.R;
 
 import java.util.List;
 

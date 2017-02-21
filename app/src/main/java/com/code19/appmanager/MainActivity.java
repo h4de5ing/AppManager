@@ -17,8 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.code19.appmanager.adapter.TabPagerAdapter;
-import com.code19.appmanager.sugar.Book;
+import com.code19.appmanager.model.AppModel;
+import com.code19.appmanager.utils.AppUtil2;
+import com.code19.library.AppUtils;
 import com.code19.library.DensityUtil;
+import com.code19.library.FileUtils;
+import com.code19.library.L;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,13 +34,25 @@ public class MainActivity extends AppCompatActivity
     private long mLastSearchTime;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<AppModel> installApp = AppUtil2.getInstallApp(MainActivity.this);
+                for (AppModel appModel : installApp) {
+                    appModel.save();
+                }
+            }
+        });
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Book book = new Book("测试书名", "出版社");
-        book.save();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mTabLayout = (TabLayout) findViewById(R.id.tl_tablayout);
         mViewPager = (ViewPager) findViewById(R.id.vp_pager);
@@ -44,7 +62,7 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        FileUtils.shareFile(this, "分享APK", AppUtils.getAppApk(this,"com.baidu.com"));
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -72,6 +90,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onQueryTextSubmit(String query) {
                 if (System.currentTimeMillis() - mLastSearchTime > 1000) {
+                    //AppModel.executeQuery("appName", query);
 //                    mPresenter.search(query);
 //                    mRecyclerView.setVisibility(View.INVISIBLE);
 //                    mMainLayout.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.dark));

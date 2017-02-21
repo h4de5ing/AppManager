@@ -2,19 +2,24 @@ package com.code19.appmanager.model;
 
 import android.graphics.drawable.Drawable;
 
+import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 import com.orm.dsl.Table;
+import com.orm.dsl.Unique;
 
 /**
  * Created by gh0st on 2017/2/17.
  */
 
-@Table
-public class AppModel {
+public class AppModel extends SugarRecord {
+    @Ignore
     private Drawable appIcon;
     private String appName;
     private String appSize;
     private String appDate;
     private String appApk;
+    @Unique
+    private String appPack;
     private boolean isSystem;
     private boolean isCollection;
 
@@ -51,7 +56,7 @@ public class AppModel {
         this.appPack = appPack;
     }
 
-    private String appPack;
+
 
     public String getAppName() {
         return appName;

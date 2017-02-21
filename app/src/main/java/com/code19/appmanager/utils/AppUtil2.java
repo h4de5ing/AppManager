@@ -66,6 +66,7 @@ public class AppUtil2 {
         return sourceDir;
     }
 
+    //启动应用
     public static void openApp(Context context, String packname) {
         Intent intent = context.getPackageManager().getLaunchIntentForPackage(packname);
         if (intent == null) {
@@ -75,15 +76,25 @@ public class AppUtil2 {
         context.startActivity(intent);
     }
 
+    //收藏
     public static void collection(Context context, AppModel bean) {
         try {
             FileUtils2.copy(bean.getAppApk(), FileUtils2.getApkFilePath(context) + bean.getAppPack() + ".apk", false);
             bean.setCollection(true);
+            bean.save();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    //删除
+    public static void deleteApp(Context context, AppModel bean) {
+        bean.setCollection(false);
+        bean.save();
+        FileUtils2.delApkFile(context, bean.getAppPack());
+    }
+
+    //查看应用信息
     public static void viewAppInfo(Context context, String packname) {
         Intent intent = new Intent();
         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");

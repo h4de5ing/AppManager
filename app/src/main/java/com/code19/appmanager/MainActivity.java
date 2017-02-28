@@ -17,14 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.code19.appmanager.adapter.TabPagerAdapter;
-import com.code19.appmanager.model.AppModel;
-import com.code19.appmanager.utils.AppUtil2;
-import com.code19.library.AppUtils;
 import com.code19.library.DensityUtil;
-import com.code19.library.FileUtils;
-import com.code19.library.L;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,20 +25,6 @@ public class MainActivity extends AppCompatActivity
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private long mLastSearchTime;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<AppModel> installApp = AppUtil2.getInstallApp(MainActivity.this);
-                for (AppModel appModel : installApp) {
-                    appModel.save();
-                }
-            }
-        });
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +41,6 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        FileUtils.shareFile(this, "分享APK", AppUtils.getAppApk(this,"com.baidu.com"));
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }

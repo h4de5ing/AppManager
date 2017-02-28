@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="tab_nav">
-        <item>用户</item>
-        <item>系统</item>
-        <item>收藏</item>
+        <item>用户应用</item>
+        <item>系统应用</item>
     </array>
     <array name="app_nav">
-        <item>打开</item>
-        <item>卸载</item>
-        <item>收藏</item>
-        <item>信息</item>
-    </array>
-    <array name="app2_nav">
-        <item>打开</item>
-        <item>分享</item>
-        <item>删除</item>
-        <item>信息</item>
+        <item>直接分享</item>
+        <item>保存APK</item>
+        <item>应用信息</item>
     </array>
 </resources>

@@ -15,8 +15,8 @@ import com.code19.appmanager.adapter.AppRecyAdapter;
 import com.code19.appmanager.interfaces.OnDialogItemSelected;
 import com.code19.appmanager.model.AppModel;
 import com.code19.appmanager.utils.AppUtil2;
+import com.code19.appmanager.utils.FileUtils2;
 import com.code19.appmanager.utils.ViewUtils;
-import com.code19.library.AppUtils;
 import com.code19.library.FileUtils;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import java.util.List;
  * Created by gh0st on 2017/2/17.
  */
 
-public class UserAppFragment extends Fragment {
+public class AppFragment extends Fragment {
     private List<AppModel> mListData;
     private int mPosition = 0;
     private AppRecyAdapter mAdapter;
@@ -39,13 +39,9 @@ public class UserAppFragment extends Fragment {
         if (bundle != null) {
             mPosition = bundle.getInt("position");
         }
-        if (mPosition == 2) {
-            mApp_nav = getResources().getStringArray(R.array.app2_nav);
-        } else {
-            mApp_nav = getResources().getStringArray(R.array.app_nav);
-        }
+        mApp_nav = getResources().getStringArray(R.array.app_nav);
         mListData = new ArrayList<>();
-        List<AppModel> appModels = AppModel.listAll(AppModel.class);
+        List<AppModel> appModels = AppUtil2.getInstallApp(getActivity());
         for (AppModel appModel : appModels) {
             switch (mPosition) {
                 case 0:
@@ -54,10 +50,6 @@ public class UserAppFragment extends Fragment {
                     break;
                 case 1:
                     if (appModel.isSystem())
-                        mListData.add(appModel);
-                    break;
-                case 2:
-                    if (appModel.isCollection())
                         mListData.add(appModel);
                     break;
             }
@@ -80,29 +72,21 @@ public class UserAppFragment extends Fragment {
                         AppModel bean = mListData.get(position);
                         switch (navposition) {
                             case 0:
-                                if (bean.isSystem()) {
-                                    AppUtil2.openApp(getActivity(), bean.getAppPack());
-                                } else {
-                                    AppUtils.runApp(getActivity(), bean.getAppPack());
-                                }
+                                FileUtils.shareFile(getActivity(), "分享APK", bean.getAppApk());
                                 break;
                             case 1:
-                                if (mPosition == 2) {
-                                    FileUtils.shareFile(getActivity(), "分享APK", bean.getAppApk());
-                                } else {
-                                    AppUtils.uninstallApk(getActivity(), bean.getAppPack());
+                                try {
+                                    FileUtils2.copy(bean.getAppApk(), FileUtils2.getApkFilePath(getActivity()) + bean.getAppPack() + ".apk", false);
+                                    Toast.makeText(getActivity(), "保存成功", Toast.LENGTH_SHORT).show();
+                                } catch (Exception e) {
+                                    Toast.makeText(getActivity(), "保存失败", Toast.LENGTH_SHORT).show();
+                                    e.printStackTrace();
                                 }
+
                                 break;
                             case 2:
-                                if (mPosition == 2) {
-                                    AppUtil2.deleteApp(getActivity(), bean);
-                                } else {
-                                    AppUtil2.collection(getActivity(), bean);
-                                    Toast.makeText(getActivity(), "收藏成功", Toast.LENGTH_SHORT).show();
-                                }
-                                break;
-                            case 3:
-                                AppUtil2.viewAppInfo(getActivity(), bean.getAppPack());
+                                Toast.makeText(getActivity(), "正在开发中...", Toast.LENGTH_SHORT).show();
+                                //AppUtil2.viewAppInfo(getActivity(), bean.getAppPack());
                                 break;
                         }
                     }

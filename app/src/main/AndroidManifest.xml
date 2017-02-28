@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--监听应用的安装卸载-->
+        <!-- 监听应用的安装卸载 -->
         <receiver
             android:name=".receiver.AppInstallReceiver"
             android:enabled="true">
@@ -46,6 +46,9 @@
                 <data android:scheme="package"/>
             </intent-filter>
         </receiver>
+
+        <activity android:name=".AppDetailActivity">
+        </activity>
     </application>
 
 </manifest>

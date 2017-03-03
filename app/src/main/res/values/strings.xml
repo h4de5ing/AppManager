@@ -6,6 +6,7 @@
     <string name="action_about">关于</string>
     <string name="action_search">搜索</string>
     <string name="search_hint">搜索应用&#8230;</string>
+    <string name="loading">应用加载中&#8230;</string>
     <string name="app_info_load_apk">提取APk</string>
 
 </resources>

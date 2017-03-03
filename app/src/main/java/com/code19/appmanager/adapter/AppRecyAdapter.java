@@ -35,10 +35,8 @@ public class AppRecyAdapter extends RecyclerView.Adapter<AppRecyAdapter.ToolsVie
     @Override
     public void onBindViewHolder(ToolsViewHolder holder, int position) {
         holder.tv_appName.setText(mDatas.get(position).getAppName());
-        holder.tv_appPackName.setText(mDatas.get(position).getAppPack());
         holder.iv_appIcon.setImageDrawable(mDatas.get(position).getAppIcon());
         holder.tv_appSize.setText(mDatas.get(position).getAppSize());
-        holder.tv_appDate.setText(mDatas.get(position).getAppDate());
     }
 
     @Override
@@ -48,18 +46,14 @@ public class AppRecyAdapter extends RecyclerView.Adapter<AppRecyAdapter.ToolsVie
 
     public class ToolsViewHolder extends RecyclerView.ViewHolder {
         TextView tv_appName;
-        TextView tv_appPackName;
         ImageView iv_appIcon;
         TextView tv_appSize;
-        TextView tv_appDate;
 
         public ToolsViewHolder(View itemView) {
             super(itemView);
             tv_appName = (TextView) itemView.findViewById(R.id.recy_app_name);
-            tv_appPackName = (TextView) itemView.findViewById(R.id.recy_app_packname);
             iv_appIcon = (ImageView) itemView.findViewById(R.id.recy_app_icon);
             tv_appSize = (TextView) itemView.findViewById(R.id.recy_app_size);
-            tv_appDate = (TextView) itemView.findViewById(R.id.recy_app_date);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -71,8 +65,8 @@ public class AppRecyAdapter extends RecyclerView.Adapter<AppRecyAdapter.ToolsVie
         }
     }
 
-    public void setOnClickListener(OnClickListener onClickListner) {
-        this.mOnClickListener = onClickListner;
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
     }
 
     public interface OnClickListener {

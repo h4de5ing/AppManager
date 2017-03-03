@@ -4,9 +4,4 @@
         <item>用户应用</item>
         <item>系统应用</item>
     </array>
-    <array name="app_nav">
-        <item>直接分享</item>
-        <item>保存APK</item>
-        <item>应用信息</item>
-    </array>
 </resources>

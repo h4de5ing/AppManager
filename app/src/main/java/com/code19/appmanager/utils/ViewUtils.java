@@ -25,7 +25,7 @@ public class ViewUtils {
      */
     public static void appInfoDialog(final Activity activity, final AppModel appModel) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-        dialog.setCancelable(true);
+        dialog.setCancelable(false);
         dialog.setIcon(appModel.getAppIcon());
         dialog.setTitle(appModel.getAppName());
         String packname = appModel.getAppPack();

@@ -8,13 +8,13 @@
     <string name="search_hint">搜索应用&#8230;</string>
     <string name="loading">应用加载中&#8230;</string>
     <string name="app_info_packname">"包名:%1$s"</string>
-    <string name="app_info">"\nAPK位置%1$s\n数据目录%2$s\n版本名%3$s\n版本号%4$d\n文件大小%5$s\n安装时间%6$s\n更新时间%7$s\nTargetSDKVersion%8$d\nUID%9$d\n签名信息%10$s"</string>
+    <string name="app_info">"\nAPK位置:%1$s\n数据目录:%2$s\n版本名:%3$s\n版本号:%4$d\n文件大小:%5$s\n安装时间:%6$s\n更新时间:%7$s\nTargetSDKVersion:%8$d\nUID:%9$d\n签名信息:%10$s"</string>
     <string name="app_info_load_apk">提取APk</string>
     <string name="app_info_load_apk_success">提取成功</string>
     <string name="app_info_load_apk_fail">提取失败</string>
     <string name="app_info_share_apk">分享APk</string>
     <string name="app_info_share_apk_to_friend">分享%1$s 给朋友</string>
-
+    <string name="apk_title">查看APK</string>
     <string name="open_tips">逃跑 ♪(＾∀＾●)ﾉｼ (●´∀｀)♪</string>
     <string name="about_tips0">调戏(;￣◇￣)┘</string>
     <string name="about_website">https://19code.com</string>

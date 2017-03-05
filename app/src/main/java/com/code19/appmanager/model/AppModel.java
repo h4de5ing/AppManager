@@ -14,15 +14,6 @@ public class AppModel {
     private String appApk;
     private String appPack;
     private boolean isSystem;
-    private boolean isCollection;
-
-    public boolean isCollection() {
-        return isCollection;
-    }
-
-    public void setCollection(boolean collection) {
-        isCollection = collection;
-    }
 
     public boolean isSystem() {
         return isSystem;

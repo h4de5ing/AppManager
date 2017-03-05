@@ -1,6 +1,7 @@
 package com.code19.appmanager;
 
 import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.MenuItemCompat;
@@ -10,8 +11,11 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.code19.appmanager.adapter.TabPagerAdapter;
+import com.code19.appmanager.ui.activity.ListApkActivity;
+import com.code19.appmanager.utils.ViewUtils;
 import com.code19.library.DensityUtil;
 import com.code19.library.L;
 
@@ -58,5 +62,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_apk:
+                startActivity(new Intent(MainActivity.this, ListApkActivity.class));
+                break;
+            case R.id.action_open:
+                ViewUtils.openDialog(this);
+                break;
+            case R.id.action_about:
+                ViewUtils.aboutDialog(this);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

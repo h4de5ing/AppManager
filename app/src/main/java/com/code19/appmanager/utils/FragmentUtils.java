@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 
-import com.code19.appmanager.fragment.AppFragment;
+import com.code19.appmanager.ui.fragment.AppFragment;
 
 /**
  * Created by gh0st on 2017/2/17.

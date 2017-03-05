@@ -1,4 +1,4 @@
-package com.code19.appmanager.fragment;
+package com.code19.appmanager.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,7 +31,7 @@ public class AppFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_userapp, null);
+        View view = inflater.inflate(R.layout.layout_list_app, null);
         RecyclerView recylist = (RecyclerView) view.findViewById(R.id.recy_list);
         recylist.setLayoutManager(new LinearLayoutManager(getActivity()));
         mListData = new ArrayList<>();

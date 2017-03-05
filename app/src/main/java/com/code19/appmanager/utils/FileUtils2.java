@@ -2,8 +2,6 @@ package com.code19.appmanager.utils;
 
 import android.content.Context;
 
-import com.code19.library.FileUtils;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,10 +14,6 @@ import java.io.InputStream;
 public class FileUtils2 {
     public static String getApkFilePath(Context context) {
         return context.getExternalFilesDir("apk") + "/";
-    }
-
-    public static void delApkFile(Context context, String packname) {
-        FileUtils.deleteFile(getApkFilePath(context) + packname + ".apk");
     }
 
     /**

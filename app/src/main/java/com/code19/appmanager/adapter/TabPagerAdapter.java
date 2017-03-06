@@ -22,7 +22,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return FragmentUtils.getInstatic().getFragment(position);
+        return FragmentUtils.getInstance().getFragment(position);
     }
 
     @Override
@@ -32,6 +32,6 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return FragmentUtils.getInstatic().getFragmentSize();
+        return FragmentUtils.getInstance().getFragmentSize();
     }
 }

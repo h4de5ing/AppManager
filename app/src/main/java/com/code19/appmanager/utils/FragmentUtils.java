@@ -13,7 +13,7 @@ import com.code19.appmanager.ui.fragment.AppFragment;
 public class FragmentUtils {
     private static FragmentUtils mFactory = null;
 
-    public static FragmentUtils getInstatic() {
+    public static FragmentUtils getInstance() {
         if (mFactory == null) {
             mFactory = new FragmentUtils();
         }

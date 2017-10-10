@@ -45,7 +45,6 @@ public class AppUtil2 {
             if (!TextUtils.isEmpty(appName) && !TextUtils.isEmpty(appDate) && !TextUtils.isEmpty(appSize)) {
                 appDatas.add(appModel);
             }
-            //File file = new File(FileUtils2.getApkFilePath(context) + info.packageName + ".apk");
         }
         return appDatas;
     }

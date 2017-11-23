@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mTabLayout = (TabLayout) findViewById(R.id.tl_tablayout);
-        mViewPager = (ViewPager) findViewById(R.id.vp_pager);
+        mTabLayout = findViewById(R.id.tl_tablayout);
+        mViewPager = findViewById(R.id.vp_pager);
         mTabLayout.setupWithViewPager(mViewPager);
         mViewPager.setAdapter(new TabPagerAdapter(getSupportFragmentManager(), this));
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * https://github.com/yanzhenjie/SearchViewSample
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);

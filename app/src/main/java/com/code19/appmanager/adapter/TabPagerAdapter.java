@@ -34,10 +34,6 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-<<<<<<< HEAD
         return stringArray.length;
-=======
-        return FragmentUtils.getInstance().getFragmentSize();
->>>>>>> 4a3adb0fa50dbc2c4f38471945d431802a55221b
     }
 }

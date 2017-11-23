@@ -1,11 +1,13 @@
 package com.code19.appmanager;
 
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -15,14 +17,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.code19.appmanager.adapter.TabPagerAdapter;
-import com.code19.appmanager.ui.activity.ListApkActivity;
 import com.code19.appmanager.utils.ViewUtils;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_EXTERNAL_STORAGE = 10086;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    private long mLastSearchTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +90,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_apk:
-                startActivity(new Intent(MainActivity.this, ListApkActivity.class));
-                break;
             case R.id.action_open:
                 ViewUtils.openDialog(this);
                 break;

@@ -12,8 +12,8 @@ android {
     }
     buildTypes {
         debug {
-            minifyEnabled true //混淆
-            shrinkResources true  //资源压缩
+            minifyEnabled false //混淆
+            shrinkResources false  //资源压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {

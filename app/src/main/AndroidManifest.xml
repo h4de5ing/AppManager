@@ -6,16 +6,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
-        android:name=".base.App"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".ui.activity.OutputActivity"
+                android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -24,8 +22,8 @@
         </activity>
         <!-- 监听应用的安装卸载 -->
         <receiver
-            android:name=".receiver.AppInstallReceiver"
-            android:enabled="true">
+                android:name=".receiver.AppInstallReceiver"
+                android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED"/>
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
@@ -36,6 +34,15 @@
 
         <activity android:name=".ui.activity.ListApkActivity">
         </activity>
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="APKCode19"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>

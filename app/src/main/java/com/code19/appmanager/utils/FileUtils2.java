@@ -1,6 +1,7 @@
 package com.code19.appmanager.utils;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +14,7 @@ import java.io.InputStream;
 
 public class FileUtils2 {
     public static String getApkFilePath(Context context) {
-        return context.getExternalFilesDir("apk") + "/";
+        return Environment.getExternalStorageDirectory() + File.separator + "APKCode19" + File.separator;
     }
 
     /**

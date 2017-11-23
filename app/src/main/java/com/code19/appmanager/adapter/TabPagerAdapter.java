@@ -14,24 +14,26 @@ import com.code19.appmanager.utils.FragmentUtils;
 
 public class TabPagerAdapter extends FragmentPagerAdapter {
     private Context mContext;
+    private String[] stringArray;
 
     public TabPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.mContext = context;
+        stringArray = mContext.getResources().getStringArray(R.array.tab_nav);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return FragmentUtils.getInstatic().getFragment(position);
+        return FragmentUtils.getInstance().getFragment(position);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getStringArray(R.array.tab_nav)[position];
+        return stringArray[position];
     }
 
     @Override
     public int getCount() {
-        return FragmentUtils.getInstatic().getFragmentSize();
+        return stringArray.length;
     }
 }

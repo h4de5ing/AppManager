@@ -3,5 +3,6 @@
     <array name="tab_nav">
         <item>用户应用</item>
         <item>系统应用</item>
+        <item>导出全部</item>
     </array>
 </resources>

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 
 import com.code19.appmanager.ui.fragment.AppFragment;
+import com.code19.appmanager.ui.fragment.OutAppAPKFragment;
 
 /**
  * Created by gh0st on 2017/2/17.
@@ -13,15 +14,11 @@ import com.code19.appmanager.ui.fragment.AppFragment;
 public class FragmentUtils {
     private static FragmentUtils mFactory = null;
 
-    public static FragmentUtils getInstatic() {
+    public static FragmentUtils getInstance() {
         if (mFactory == null) {
             mFactory = new FragmentUtils();
         }
         return mFactory;
-    }
-
-    public int getFragmentSize() {
-        return 2;
     }
 
     public Fragment getFragment(int position) {
@@ -42,6 +39,12 @@ public class FragmentUtils {
                 Bundle bundle1 = new Bundle();
                 bundle1.putInt("position", 1);
                 fragment.setArguments(bundle1);
+                break;
+            case 3:
+                fragment = new OutAppAPKFragment();
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("position", 2);
+                fragment.setArguments(bundle2);
                 break;
         }
         map.put(position, fragment);
